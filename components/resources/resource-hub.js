@@ -14,7 +14,7 @@ const resources = [
     category: "Guides",
     description: "Complete guide to basic computer and internet usage.",
     icon: FileText,
-    downloadUrl: "#"
+    downloadUrl: "https://unesdoc.unesco.org/in/rest/annotationSVC/DownloadWatermarkedAttachment/attach_import_6396a9f3-da0b-4c56-adbe-4d3578ddbd1d?_=389207eng.pdf&to=38&from=1#pdfjs.action=download"
   },
   {
     title: "Online Safety Tutorial",
@@ -22,7 +22,7 @@ const resources = [
     category: "Tutorials",
     description: "Learn about internet safety and cybersecurity basics.",
     icon: Video,
-    downloadUrl: "#"
+    downloadUrl: "https://example.com/online-safety-tutorial.mp4"
   },
   {
     title: "Digital Skills Workbook",
@@ -30,9 +30,48 @@ const resources = [
     category: "Workbooks",
     description: "Practice exercises for essential digital skills.",
     icon: Book,
-    downloadUrl: "#"
+    downloadUrl: "https://example.com/digital-skills-workbook.pdf"
   },
-  // Add more resources as needed
+  {
+    title: "Programming 101",
+    type: "PDF",
+    category: "Guides",
+    description: "Beginner's guide to programming concepts and syntax.",
+    icon: FileText,
+    downloadUrl: "https://example.com/programming-101.pdf"
+  },
+  {
+    title: "Data Privacy Essentials",
+    type: "Video",
+    category: "Tutorials",
+    description: "Essential tips for protecting your data online.",
+    icon: Video,
+    downloadUrl: "https://example.com/data-privacy-essentials.mp4"
+  },
+  {
+    title: "Excel Skills Workbook",
+    type: "PDF",
+    category: "Workbooks",
+    description: "Exercises to master Excel formulas and functions.",
+    icon: Book,
+    downloadUrl: "https://example.com/excel-skills-workbook.pdf"
+  },
+  {
+    title: "Web Development Basics",
+    type: "PDF",
+    category: "Guides",
+    description: "Step-by-step guide to starting with web development.",
+    icon: FileText,
+    downloadUrl: "https://example.com/web-development-basics.pdf"
+  },
+  {
+    title: "Cybersecurity Best Practices",
+    type: "Video",
+    category: "Tutorials",
+    description: "Video tutorial on staying secure in a digital world.",
+    icon: Video,
+    downloadUrl: "https://example.com/cybersecurity-best-practices.mp4"
+  }
 ];
 
 const categories = ["All", "Guides", "Tutorials", "Workbooks"];
@@ -102,7 +141,7 @@ export default function ResourceHub() {
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">{resource.type}</span>
                     <Button variant="outline" size="sm" asChild>
-                      <a href={resource.downloadUrl}>
+                      <a href={resource.downloadUrl} target="_blank" rel="noopener noreferrer">
                         <Download className="h-4 w-4 mr-2" />
                         Download
                       </a>
