@@ -11,11 +11,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"; 
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/toast";
 import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
+
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -24,9 +26,9 @@ const formSchema = z.object({
   message: z.string().min(20, "Message must be at least 20 characters"),
 });
 
-
 export default function ContactForm() {
   const { toast } = useToast();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,15 +39,40 @@ export default function ContactForm() {
     },
   });
 
+  
   function onSubmit(values) {
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    form.reset();
+    const emailParams = {
+      from_name: values.name,
+      from_email: values.email,
+      subject: values.subject,
+      message: values.message,
+    };
+
+   
+    emailjs
+      .send(
+        "service_sy6a4ei",
+        "template_qh13jjl", 
+        emailParams,
+        "iS2_RBSAL8gZJ_J8w" 
+      )
+      .then(
+        (response) => {
+          alert( "We'll get back to you as soon as possible.");
+
+        },
+        (error) => {
+          toast({
+            title: "Error",
+            description: "There was an issue sending your message. Please try again.",
+          });
+        }
+      );
+      form.reset();
   }
 
   return (
+
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
@@ -55,6 +82,7 @@ export default function ContactForm() {
       <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          {/* Name field */}
           <FormField
             control={form.control}
             name="name"
@@ -69,6 +97,7 @@ export default function ContactForm() {
             )}
           />
 
+          {/* Email field */}
           <FormField
             control={form.control}
             name="email"
@@ -83,6 +112,7 @@ export default function ContactForm() {
             )}
           />
 
+          {/* Subject field */}
           <FormField
             control={form.control}
             name="subject"
@@ -97,6 +127,7 @@ export default function ContactForm() {
             )}
           />
 
+          {/* Message field */}
           <FormField
             control={form.control}
             name="message"
@@ -115,6 +146,7 @@ export default function ContactForm() {
             )}
           />
 
+          {/* Submit button */}
           <Button type="submit" className="w-full">Send Message</Button>
         </form>
       </Form>

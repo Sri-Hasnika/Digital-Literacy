@@ -16,8 +16,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/toast";
 import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
 
-// Rest of the file remains the same...
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -37,14 +37,29 @@ export default function Apply() {
     },
   });
 
-  function onSubmit(values) {
-    toast({
-      title: "Application Submitted!",
-      description: "We'll get back to you within 2-3 business days.",
-    });
-    form.reset();
+  async function onSubmit(values) {
+    const { name, email, phone, reason } = values;
+
+    try {
+      // Replace these with your EmailJS credentials
+      const serviceID = "service_sy6a4ei";
+      const templateID = "template_hu62r1d";
+      const userID = "iS2_RBSAL8gZJ_J8w";
+
+      // Send email using EmailJS
+      await emailjs.send(serviceID, templateID, { name, email, phone, reason }, userID);
+
+      form.reset();
+      alert.success("Application Submitted! We've sent your application details to the admin.");
+      
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your application. Please try again.",
+        variant: "destructive",
+      });
+    }
   }
-  
 
   return (
     <div className="min-h-screen pt-20 pb-12 bg-muted">

@@ -33,7 +33,7 @@ export default function Features() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section ref={ref} className="py-24 bg-background">
+    <section ref={ref} className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Our Solutions</h2>
@@ -43,7 +43,7 @@ export default function Features() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -51,14 +51,22 @@ export default function Features() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full">
-                <CardHeader>
-                  <feature.icon className="h-8 w-8 mb-4 text-primary" />
-                  <CardTitle>{feature.title}</CardTitle>
+              <Card
+                className="h-full group relative overflow-hidden transition-transform transform hover:scale-105"
+              >
+                <CardHeader className="p-4">
+                <feature.icon className="h-8 w-8 mb-4 text-primary transition-colors duration-500 group-hover:text-yellow-400"/>
+                  <CardTitle
+                    className="text-lg font-bold transition-all duration-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-l from-yellow-400 to-red-500 transition-colors"
+                  >
+                    {feature.title}
+                  </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </CardContent>
+                <CardContent className="p-4">
+                  <p className="text-muted-foreground overflow-hidden group-hover:text-white">
+                    {feature.description}
+                  </p>
+                </CardContent>              
               </Card>
             </motion.div>
           ))}

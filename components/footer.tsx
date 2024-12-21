@@ -40,10 +40,9 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li>contact@digitalliteracy.org</li>
-              <li>+1 (555) 123-4567</li>
+              <li>contactdigitalliteracy@gmail.com</li>
+              <li>+91 5551234567</li>
               <li>123 Digital Street</li>
-              <li>Tech Valley, CA 94043</li>
             </ul>
           </div>
           <div>

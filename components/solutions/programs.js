@@ -26,13 +26,6 @@ const programs = [
     duration: "3 weeks",
     level: "Beginner"
   },
-  {
-    title: "Coding Fundamentals",
-    description: "Basic programming concepts and web development.",
-    icon: Code,
-    duration: "8 weeks",
-    level: "Intermediate"
-  }
 ];
 
 export default function Programs() {
@@ -52,7 +45,7 @@ export default function Programs() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {programs.map((program, index) => (
             <motion.div
               key={program.title}
@@ -60,10 +53,10 @@ export default function Programs() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card>
+              <Card className="h-full group relative overflow-hidden transition-transform transform hover:scale-105">
                 <CardHeader>
-                  <program.icon className="h-8 w-8 mb-4 text-primary" />
-                  <CardTitle>{program.title}</CardTitle>
+                  <program.icon className="h-8 w-8 mb-4 text-primary duration-500 group-hover:text-yellow-400" />
+                  <CardTitle className="transition-all duration-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-l from-yellow-400 to-red-500 transition-colors">{program.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">{program.description}</p>

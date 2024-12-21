@@ -5,31 +5,26 @@ import { Quote } from "lucide-react";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-const testimonials = [
+const surveyResponses = [
   {
     id: 1,
-    quote: "The Digital Literacy Initiative has transformed our community. Our children now have access to world-class educational resources.",
-    author: "Sarah Johnson",
-    role: "Community Leader",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3",
+    quote: "Learning to use the internet has opened new opportunities for us. Now, I can help my children with their studies online.",
+    author: "Sita Devi",
+    role: "Homemaker",
+    image: "https://www.indiaspend.com/h-upload/old_images/344720-62025.jpg",
   },
   {
     id: 2,
-    quote: "Thanks to this program, I learned essential digital skills that helped me start my own online business.",
-    author: "Michael Chen",
-    role: "Program Graduate",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3",
+    quote: "This initiative taught me how to use a smartphone effectively. I can now stay connected with my relatives and access useful information.",
+    author: "Ramu",
+    role: "Farmer",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLMRaAilDsFiXFxHTyJkcF7Sl71nFcYX4pRg&s",
   },
-  {
-    id: 3,
-    quote: "The initiative's impact on rural education is remarkable. It's bridging the digital divide one community at a time.",
-    author: "Dr. Emily Rodriguez",
-    role: "Education Researcher",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3",
-  },
+  
+
 ];
 
-export default function Testimonials() {
+export default function SurveyTestimonials() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -37,17 +32,16 @@ export default function Testimonials() {
     <section ref={ref} className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">What People Say</h2>
+          <h2 className="text-3xl font-bold mb-4">Survey Insights</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Hear from our community members about how the Digital Literacy Initiative
-            has impacted their lives and communities.
+            Here are some of the insights we gathered from our survey in the village, which inspired us to create this platform.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {surveyResponses.map((response, index) => (
             <motion.div
-              key={testimonial.id}
+              key={response.id}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -57,17 +51,17 @@ export default function Testimonials() {
                   <div className="mb-4">
                     <Quote className="h-8 w-8 text-primary" />
                   </div>
-                  <p className="mb-6 text-muted-foreground">{testimonial.quote}</p>
+                  <p className="mb-6 text-muted-foreground">{response.quote}</p>
                   <div className="flex items-center">
                     <img
-                      src={testimonial.image}
-                      alt={testimonial.author}
+                      src={response.image}
+                      alt={response.author}
                       className="h-12 w-12 rounded-full object-cover mr-4"
                     />
                     <div>
-                      <div className="font-semibold">{testimonial.author}</div>
+                      <div className="font-semibold">{response.author}</div>
                       <div className="text-sm text-muted-foreground">
-                        {testimonial.role}
+                        {response.role}
                       </div>
                     </div>
                   </div>
