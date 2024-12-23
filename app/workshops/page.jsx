@@ -13,7 +13,7 @@ export default function WorkshopsPage() {
           <div key={workshop.id} className="bg-white rounded-lg shadow-md p-6">
             <div className="flex justify-between items-start mb-4">
               <div>
-                <h2 className="text-xl font-semibold mb-2">{workshop.title}</h2>
+                <h2 className="text-xl font-semibold text-black mb-2">{workshop.title}</h2>
                 <p className="text-gray-600 mb-4">{workshop.description}</p>
               </div>
               <span className={`px-3 py-1 rounded-full text-sm font-medium

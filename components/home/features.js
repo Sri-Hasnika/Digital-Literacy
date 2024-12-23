@@ -57,7 +57,7 @@ export default function Features() {
                 <CardHeader className="p-4">
                 <feature.icon className="h-8 w-8 mb-4 text-primary transition-colors duration-500 group-hover:text-yellow-400"/>
                   <CardTitle
-                    className="text-lg font-bold transition-all duration-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-l from-yellow-400 to-red-500 transition-colors"
+                    className="text-lg font-bold transition-all duration-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-l from-yellow-400 to-red-500"
                   >
                     {feature.title}
                   </CardTitle>

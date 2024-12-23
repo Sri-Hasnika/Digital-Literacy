@@ -70,7 +70,7 @@ const resources = [
     category: "Tutorials",
     description: "Video tutorial on staying secure in a digital world.",
     icon: Video,
-    downloadUrl: "https://example.com/cybersecurity-best-practices.mp4"
+    downloadUrl: ""
   }
 ];
 
@@ -131,21 +131,33 @@ export default function ResourceHub() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card>
+              <Card className="h-full group relative overflow-hidden transition-transform transform hover:scale-105">
                 <CardHeader>
-                  <resource.icon className="h-8 w-8 mb-4 text-primary" />
-                  <CardTitle>{resource.title}</CardTitle>
+                  <resource.icon className="h-8 w-8 mb-4 text-primary duration-500 group-hover:text-yellow-400" />
+                  <CardTitle className="transition-all duration-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-l from-yellow-400 to-red-500 ">{resource.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">{resource.description}</p>
+                  <p className="text-muted-foreground mb-4 group-hover:text-white">{resource.description}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">{resource.type}</span>
-                    <Button variant="outline" size="sm" asChild>
-                      <a href={resource.downloadUrl} target="_blank" rel="noopener noreferrer">
-                        <Download className="h-4 w-4 mr-2" />
-                        Download
-                      </a>
-                    </Button>
+                    <Button
+                    variant="outline"
+                    size="sm"
+                    asChild
+                    className="relative overflow-hidden"
+                  >
+                    <a
+                      href={resource.downloadUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center"
+                    >
+                      <Download className="h-4 w-4 mr-2" />
+                      Download
+                    </a>
+                  </Button>
+
+
                   </div>
                 </CardContent>
               </Card>

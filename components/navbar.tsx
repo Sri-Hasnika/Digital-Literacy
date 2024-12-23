@@ -12,7 +12,8 @@ const Navbar = () => {
     { href: "/", label: "Home" },
     { href: "/solutions", label: "Solutions" },
     { href: "/resources", label: "Resources" },
-    { href: "/qna", label: "Q&A" },
+    { href: "/workshops", label: "Workshops" },
+    { href: "/qna", label: "FAQ" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -29,7 +30,7 @@ const Navbar = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors active:text-violet-400/80 active focus:text-violet-400/80 "
               >
                 {item.label}
               </Link>

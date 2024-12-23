@@ -50,14 +50,10 @@ export default function Apply() {
       await emailjs.send(serviceID, templateID, { name, email, phone, reason }, userID);
 
       form.reset();
-      alert.success("Application Submitted! We've sent your application details to the admin.");
+      alert("Application Submitted! We've sent your application details to the admin.");
       
     } catch (error) {
-      toast({
-        title: "Submission Failed",
-        description: "There was an error submitting your application. Please try again.",
-        variant: "destructive",
-      });
+      alert("There was an error submitting your application. Please try again.");
     }
   }
 
