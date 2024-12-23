@@ -56,10 +56,10 @@ export default function Programs() {
               <Card className="h-full group relative overflow-hidden transition-transform transform hover:scale-105">
                 <CardHeader>
                   <program.icon className="h-8 w-8 mb-4 text-primary duration-500 group-hover:text-yellow-400" />
-                  <CardTitle className="transition-all duration-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-l from-yellow-400 to-red-500 transition-colors">{program.title}</CardTitle>
+                  <CardTitle className="transition-all duration-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-l from-yellow-400 to-red-500 ">{program.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">{program.description}</p>
+                  <p className="text-muted-foreground mb-4 group-hover:text-white">{program.description}</p>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Duration: {program.duration}</span>
                     <span className="text-muted-foreground">Level: {program.level}</span>

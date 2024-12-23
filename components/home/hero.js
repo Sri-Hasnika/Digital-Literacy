@@ -12,7 +12,7 @@ export default function Hero() {
         <img
           src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3"
           alt="Digital Literacy"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-15"
         />
       </div>
       
