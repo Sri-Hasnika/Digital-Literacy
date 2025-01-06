@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FileText, Video, Book, Download } from "lucide-react";
+import SpotlightCard from '../ui/SpotlightCard';
+    
 
 const resources = [
   {
@@ -165,6 +167,38 @@ export default function ResourceHub() {
           ))}
         </div>
       </div>
+
+      {/* cards using reactbits library */}
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {filteredResources.map((resource, index) => (
+        <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+        <i class="fa fa-lock"></i>
+        <h2><resource.icon className="h-8 w-8 mb-4 text-primary duration-500 group-hover:text-yellow-400" /></h2>
+        <p className="text-muted-foreground mb-4 group-hover:text-white">{resource.description}</p>
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-muted-foreground">{resource.type}</span>
+                <Button
+                variant="outline"
+                size="sm"
+                asChild
+                className="relative overflow-hidden"
+              >
+                <a
+                  href={resource.downloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center"
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  Download
+                </a>
+              </Button>
+
+
+              </div>
+      </SpotlightCard>
+      ))}
+      </div> */}
     </section>
   );
 }
